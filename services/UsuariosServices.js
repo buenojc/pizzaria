@@ -1,4 +1,5 @@
 const usuarios = require("../databases/usuarios.json");
+const fs = require('fs')
 
 function listar() {
   console.table(
@@ -13,7 +14,7 @@ function listar() {
 }
 
 function salvar(arrayDeUsuarios) {
-  // Seu código aqui
+  fs.writeFileSync('./databases/usuarios.json', JSON.stringify(arrayDeUsuarios, null, 4))
 }
 
 function cadastrar(objeto) {
@@ -64,6 +65,7 @@ const UsuariosServices = {
   cadastrar,
   listar,
   detalhar,
+  salvar,
   remover,
   alterar,
   addEndereco,
