@@ -13,13 +13,47 @@ function listar() {
   );
 }
 
+
 function salvar(arrayDeUsuarios) {
   fs.writeFileSync('./databases/usuarios.json', JSON.stringify(arrayDeUsuarios, null, 4))
 }
 
-function cadastrar(objeto) {
-  // Seu código aqui
+
+
+function pegaIdDisponivel(){
+    //Função criada para lidar com usuários já cadastrados no database com Id não sequencial.
+
+    let id = usuarios.length + 1;
+    let idDisponivel = usuarios.find( usuario => usuario.id == id)
+
+    while(idDisponivel !== undefined){
+        id += 1;
+        idDisponivel = usuarios.find( usuario => usuario.id == id)
+    }
+  
+    return id;
 }
+
+
+
+function cadastrar(objeto) {
+  
+    const bcrypt = require('bcrypt');
+    const usuario = {
+        id: pegaIdDisponivel(),
+        nome: objeto.nome,
+        email: objeto.email,
+        senha: bcrypt.hashSync(objeto.senha, 10),
+        enderecos: [objeto.endereco],
+        formasDePagamento: []
+    }
+
+    usuarios.push(usuario);
+    salvar(usuarios);
+
+}
+
+
 
 function detalhar(idUsuario) {
   // Seu código aqui
