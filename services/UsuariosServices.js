@@ -1,4 +1,5 @@
 const usuarios = require("../databases/usuarios.json");
+const bcrypt = require('bcrypt');
 const fs = require('fs')
 
 function listar() {
@@ -38,7 +39,6 @@ function pegaIdDisponivel(){
 
 function cadastrar(objeto) {
   
-    const bcrypt = require('bcrypt');
     const usuario = {
         id: pegaIdDisponivel(),
         nome: objeto.nome,
@@ -52,8 +52,6 @@ function cadastrar(objeto) {
     salvar(usuarios);
 
 }
-
-
 
 function detalhar(idUsuario) {
     
@@ -74,7 +72,26 @@ function remover(idDoUsuarioParaRemover) {
 }
 
 function alterar(novosDados, idUsuario) {
-  // Seu código aqui
+    let indexUsuario = 0;
+    
+    const usuario = 
+        usuarios.find((elemento, index) => {
+                indexUsuario = index
+                return elemento.id == idUsuario
+            } 
+        );
+
+    const usuarioAtualizado = {
+        id: usuario.id,
+        nome: novosDados.nome,
+        email: novosDados.email,
+        senha: bcrypt.hashSync(novosDados.senha, 10),
+        enderecos: usuario.enderecos,
+        formasDePagamento: usuario.formasDePagamento
+    }
+
+    usuarios.splice(indexUsuario, 1, usuarioAtualizado)
+    salvar(usuarios);
 }
 
 function addEndereco(novoEndereco, idUsuario) {
