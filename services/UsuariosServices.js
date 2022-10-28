@@ -68,7 +68,9 @@ function detalhar(idUsuario) {
 }
 
 function remover(idDoUsuarioParaRemover) {
-  // Seu código aqui
+  const usuarioIndex = usuarios.findIndex((usuario => usuario.id == idDoUsuarioParaRemover));
+  usuarios.splice(usuarioIndex, 1);
+  salvar(usuarios);
 }
 
 function alterar(novosDados, idUsuario) {
