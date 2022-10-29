@@ -88,9 +88,14 @@ function addEndereco(novoEndereco, idUsuario) {
   
 }
 
+
 function removerEndereco(posicaoDoEndereco, idUsuario) {
-  // Seu código aqui
+  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  usuarios[indexUsuario].enderecos.splice(posicaoDoEndereco, 1)
+  salvar(usuarios)
 }
+
+
 
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario) {
   // Seu código aqui
