@@ -68,25 +68,13 @@ function remover(idDoUsuarioParaRemover) {
 
 
 function alterar(novosDados, idUsuario) {
-    let indexUsuario = 0;
-    
-    const usuario = 
-        usuarios.find((elemento, index) => {
-                indexUsuario = index
-                return elemento.id == idUsuario
-            } 
-        );
 
-    const usuarioAtualizado = {
-        id: usuario.id,
-        nome: novosDados.nome,
-        email: novosDados.email,
-        senha: bcrypt.hashSync(novosDados.senha, 10),
-        enderecos: usuario.enderecos,
-        formasDePagamento: usuario.formasDePagamento
-    }
+    const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario)
 
-    usuarios.splice(indexUsuario, 1, usuarioAtualizado)
+    usuarios[indexUsuario].nome = novosDados.nome;
+    usuarios[indexUsuario].email = novosDados.email;
+    usuarios[indexUsuario].senha = bcrypt.hashSync(novosDados.nome, 10);
+
     salvar(usuarios);
 }
 
