@@ -57,11 +57,15 @@ function detalhar(idUsuario) {
     console.table(usuario.formasDePagamento)
 }
 
+
+
 function remover(idDoUsuarioParaRemover) {
   const usuarioIndex = usuarios.findIndex((usuario => usuario.id == idDoUsuarioParaRemover));
   usuarios.splice(usuarioIndex, 1);
   salvar(usuarios);
 }
+
+
 
 function alterar(novosDados, idUsuario) {
     let indexUsuario = 0;
@@ -86,8 +90,14 @@ function alterar(novosDados, idUsuario) {
     salvar(usuarios);
 }
 
+
+
 function addEndereco(novoEndereco, idUsuario) {
-  // Seu código aqui
+
+  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario );
+  usuarios[indexUsuario].enderecos.push(novoEndereco);
+  salvar(usuarios);  
+  
 }
 
 function removerEndereco(posicaoDoEndereco, idUsuario) {
