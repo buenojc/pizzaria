@@ -20,27 +20,19 @@ function salvar(arrayDeUsuarios) {
 }
 
 
-
-function pegaIdDisponivel(){
-    //Função criada para lidar com usuários já cadastrados no database com Id não sequencial.
-
-    let id = usuarios.length + 1;
-    let idDisponivel = usuarios.find( usuario => usuario.id == id)
-
-    while(idDisponivel !== undefined){
-        id += 1;
-        idDisponivel = usuarios.find( usuario => usuario.id == id)
-    }
-  
-    return id;
-}
-
-
-
 function cadastrar(objeto) {
   
+  let id = 0;
+
+  if(usuarios.length === 0){
+    id = 1;
+  }else{
+    const ultimoUsuarioCadastrado = usuarios[usuarios.length - 1]
+    id = ultimoUsuarioCadastrado.id + 1
+  }
+
     const usuario = {
-        id: pegaIdDisponivel(),
+        id,
         nome: objeto.nome,
         email: objeto.email,
         senha: bcrypt.hashSync(objeto.senha, 10),
