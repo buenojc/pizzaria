@@ -19,6 +19,10 @@ function salvar(arrayDeUsuarios) {
   fs.writeFileSync('./databases/usuarios.json', JSON.stringify(arrayDeUsuarios, null, 4))
 }
 
+function pegaIndexUsuario( idUsuario ){
+  return usuarios.findIndex((usuario => usuario.id == idUsuario));
+}
+
 
 function cadastrar(objeto) {
   
@@ -60,7 +64,7 @@ function detalhar(idUsuario) {
 
 
 function remover(idDoUsuarioParaRemover) {
-  const usuarioIndex = usuarios.findIndex((usuario => usuario.id == idDoUsuarioParaRemover));
+  const usuarioIndex = pegaIndexUsuario(idDoUsuarioParaRemover);
   usuarios.splice(usuarioIndex, 1);
   salvar(usuarios);
 }
@@ -69,7 +73,7 @@ function remover(idDoUsuarioParaRemover) {
 
 function alterar(novosDados, idUsuario) {
 
-    const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario)
+    const indexUsuario = pegaIndexUsuario(idUsuario);
 
     usuarios[indexUsuario].nome = novosDados.nome;
     usuarios[indexUsuario].email = novosDados.email;
@@ -82,7 +86,7 @@ function alterar(novosDados, idUsuario) {
 
 function addEndereco(novoEndereco, idUsuario) {
 
-  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario );
+  const indexUsuario = pegaIndexUsuario(idUsuario);
   usuarios[indexUsuario].enderecos.push(novoEndereco);
   salvar(usuarios);  
   
@@ -90,7 +94,7 @@ function addEndereco(novoEndereco, idUsuario) {
 
 
 function removerEndereco(posicaoDoEndereco, idUsuario) {
-  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  const indexUsuario = pegaIndexUsuario(idUsuario);
   usuarios[indexUsuario].enderecos.splice(posicaoDoEndereco, 1)
   salvar(usuarios)
 }
@@ -98,25 +102,25 @@ function removerEndereco(posicaoDoEndereco, idUsuario) {
 
 
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario) {
-  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  const indexUsuario = pegaIndexUsuario(idUsuario);
   usuarios[indexUsuario].enderecos[posicaoDoEndereco] = novoEndereco;
   salvar(usuarios);
 }
 
 function addFormaDePagamento(novaFormaDePagamento, idUsuario) {
-  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  const indexUsuario = pegaIndexUsuario(idUsuario);
   usuarios[indexUsuario].formasDePagamento.push(novaFormaDePagamento);
   salvar(usuarios);
 }
 
 function removerFormaDePagamento(posicaoDaFormaDePagamento, idUsuario) {
-  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  const indexUsuario = pegaIndexUsuario(idUsuario);
   usuarios[indexUsuario].formasDePagamento.splice(posicaoDaFormaDePagamento, 1);
   salvar(usuarios);
 }
 
 function alterarFormaDePagamento( novaFormaDePagamento, posicaoDaFormaDePagamento, idUsuario) {
-  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  const indexUsuario = pegaIndexUsuario(idUsuario);
   usuarios[indexUsuario].formasDePagamento[posicaoDaFormaDePagamento] = novaFormaDePagamento;
   salvar(usuarios);
 }
