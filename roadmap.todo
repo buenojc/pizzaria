@@ -140,7 +140,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         Essa função não retorna nada.
         
     
-    Função alterarFormaDePagamento:
+    [x] Função alterarFormaDePagamento:
         
         Objetivo: A função deve alterar uma forma de pagamento de um usuário.
         Essa função deve receber três parâmetros.
