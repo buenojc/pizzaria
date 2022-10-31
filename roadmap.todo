@@ -131,7 +131,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         Essa função não retorna nada.
 
 
-    Função removerFormaDePagamento:
+    [x] Função removerFormaDePagamento:
     
         Objetivo: A função deve remover a forma de pagamento especificada de um usuário.
         Essa função deve receber dois parâmetros.
