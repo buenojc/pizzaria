@@ -98,7 +98,9 @@ function removerEndereco(posicaoDoEndereco, idUsuario) {
 
 
 function alterarEndereco(posicaoDoEndereco, novoEndereco, idUsuario) {
-  // Seu código aqui
+  const indexUsuario = usuarios.findIndex(usuario => usuario.id == idUsuario);
+  usuarios[indexUsuario].enderecos[posicaoDoEndereco] = novoEndereco;
+  salvar(usuarios);
 }
 
 function addFormaDePagamento(novaFormaDePagamento, idUsuario) {

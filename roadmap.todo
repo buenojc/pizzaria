@@ -113,7 +113,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         Essa função não retorna nada.
 
     
-    Função alterarEndereco:
+    [x] Função alterarEndereco:
         
         Objetivo: A função deve alterar um endereço de um usuário.
         Essa função deve receber três parâmetros.
