@@ -122,7 +122,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         O terceiro, o id do usuário que terá um endereço alterado
 
 
-    Função addFormaDePagamento:
+    [x] Função addFormaDePagamento:
 
         Objetivo: A função deve adicionar uma nova forma de pagamento no array de formasDePagamento do usuário e atualizar o arquivo usuarios.json
         Essa função recebe dois parametros.
