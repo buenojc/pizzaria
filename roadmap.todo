@@ -2,14 +2,14 @@ As funções abaixo devem ser criadas dentro dos arquivos da pasta services.
 
 Fase 1 - Funções dentro do arquivo UsuariosServices.js:
 
-    Função listar:
+   [x] Função listar:
 
         Objetivo: Exibir uma tabela somente com index, id, nome e email do usuário
         Essa função não deve receber nenhum parâmetro
         Essa função não retorna nada
         
     
-    Função salvar:
+    [x] Função salvar:
 
         Objetivo: Essa função deve salvar um array de usuários no arquivo databases/usuarios.json
         Essa função não será exportada.
@@ -17,7 +17,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         Essa função não retorna nada
 
     
-    Função cadastrar:
+    [x] Função cadastrar:
 
         Objetivo: Essa função deve receber dados de um usuário e registrar um novo usuário no array presente no arquivo usuarios.json. O objeto contendo os dados do usuário devem seguir o seguinte modelo.
         {
@@ -44,7 +44,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
 
 
 
-    Função detalhar:
+    [x] Função detalhar:
 
         Objetivo: Essa função deve mostrar detalhes de um determinado usuário.
         Os detalhes devem ser exibidos desta forma;
@@ -73,14 +73,14 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
 
 
     
-    Função remover:
+    [x] Função remover:
         
         Objetivo: A função deve remover um usuário do arquivo usuarios.json a partir do seu id.
         Essa função deve receber o id de um usuário.
         Ela não deve retornar nada.
 
     
-    Função alterar:
+    [x] Função alterar:
 
         Objetivo: A função deve alterar os dados de pessoais de um usuário (nome, email e senha).
         Ela recebe dois parâmetros.
@@ -95,7 +95,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         Essa função não retorna nada
 
     
-    Função addEndereco:
+    [x] Função addEndereco:
 
         Objetivo: A função deve adicionar um novo endereço no array de endereços do usuário e atualizar o arquivo usuarios.json
         Essa função recebe dois parametros.
@@ -104,7 +104,7 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
         Essa função não retorna nada.
 
 
-    Função removerEndereco:
+    [x] Função removerEndereco:
     
         Objetivo: A função deve remover o endereço especificado de um usuário.
         Essa função deve receber dois parâmetros.
