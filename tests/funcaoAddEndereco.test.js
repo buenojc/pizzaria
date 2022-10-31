@@ -1,4 +1,4 @@
 const { addEndereco } = require('../services/UsuariosServices');
 
 
-addEndereco("Meu novo endereço show", 1)
+addEndereco("Rua das flores 400, São Paulo - SP", 1)
