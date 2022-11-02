@@ -87,6 +87,13 @@ function removerIngrediente(indexIngredienteARemover, idPizza){
     salvar(pizzas);
 }
 
+
+function alterarIngrediente(indexIngrediente, ingredienteAtualizado, idPizza){
+    const indexPizza = pegaIndexPorId(idPizza);
+    pizzas[indexPizza].ingredientes[indexIngrediente] = ingredienteAtualizado;
+    salvar(pizzas);
+}
+
 module.exports = {
     listarPizzas,
     adicionarPizza,
@@ -94,5 +101,6 @@ module.exports = {
     alterarPizza,
     alterarScore,
     adicionarIngrediente,
-    removerIngrediente
+    removerIngrediente,
+    alterarIngrediente
 }
