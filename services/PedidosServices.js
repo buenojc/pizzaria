@@ -69,8 +69,16 @@ function alterarUsuario(idPedido, idNovoUsuario){
 }
 
 
+function adicionarPizzaPedido(idPedido, idPizza){
+    const indexPedido = pegaIndexPedido(idPedido);
+    pedidos[indexPedido].pizzas.push(idPizza)
+    salvar(pedidos);
+}
+
+
 module.exports = {
     listarPedidos,
     cadastrarPedido,
-    alterarUsuario
+    alterarUsuario,
+    adicionarPizzaPedido
 }
