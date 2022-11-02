@@ -47,9 +47,17 @@ function adicionarPizza( informacoesPizza ){
 }
 
 
+function removerPizza( idPizza ){
+    const indexPizza = pegaIndexPorId(idPizza);
+    pizzas.splice(indexPizza, 1);
+    salvar(pizzas);
+}
+
+
 
 
 module.exports = {
     listarPizzas,
-    adicionarPizza
+    adicionarPizza,
+    removerPizza
 }
