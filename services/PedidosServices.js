@@ -75,10 +75,17 @@ function adicionarPizzaPedido(idPedido, idPizza){
     salvar(pedidos);
 }
 
+function removerPizzaPedido(idPedido, indexPizza){
+    const indexPedido = pegaIndexPedido(idPedido);
+    pedidos[indexPedido].pizzas.splice(indexPizza, 1);
+    salvar(pedidos);
+}
+
 
 module.exports = {
     listarPedidos,
     cadastrarPedido,
     alterarUsuario,
-    adicionarPizzaPedido
+    adicionarPizzaPedido,
+    removerPizzaPedido
 }
