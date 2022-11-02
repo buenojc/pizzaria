@@ -1,6 +1,8 @@
 const pedidos = require('../databases/pedidos.json');
 const usuarios = require('../databases/usuarios.json');
 const pizzas = require('../databases/pizzas.json');
+const fs = require('fs');
+
 
 function listarPedidos(){
     console.table(
@@ -31,7 +33,32 @@ function listarPedidos(){
 }
 
 
+function salvar(pedidos){
+    fs.writeFileSync('./databases/pedidos.json', JSON.stringify(pedidos, null, 4));
+}
+
+function cadastrarPedido(infoPedido){
+    let id = 1;
+    
+    if(pedidos.length > 0){
+        id = pedidos[pedidos.length - 1].id + 1
+    }
+
+    const pedido = {
+        id,
+        pizzas: infoPedido.pizzas,
+        idUsuario: infoPedido.idUsuario,
+        endereco: infoPedido.endereco,
+        createdAt: new Date().toISOString(),
+        entregue: null
+    }
+
+    pedidos.push(pedido);
+    salvar(pedidos);
+}
+
 
 module.exports = {
-    listarPedidos
+    listarPedidos,
+    cadastrarPedido
 }
