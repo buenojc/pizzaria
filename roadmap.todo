@@ -168,7 +168,7 @@ Fase 3 - Funções dentro do arquivo PedidosServices.js:
     [x] Função alterarUsuario:
     [x] Função adicionarPizza:
     [x] Função removerPizza:
-    Função marcarComoEntregue:
+    [x] Função marcarComoEntregue:
     
             
     

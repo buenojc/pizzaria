@@ -82,10 +82,18 @@ function removerPizzaPedido(idPedido, indexPizza){
 }
 
 
+function marcarComoEntregue(idPedido){
+    const indexPedido = pegaIndexPedido(idPedido);
+    pedidos[indexPedido].entregue = true;
+    salvar(pedidos);
+}
+
+
 module.exports = {
     listarPedidos,
     cadastrarPedido,
     alterarUsuario,
     adicionarPizzaPedido,
-    removerPizzaPedido
+    removerPizzaPedido,
+    marcarComoEntregue
 }
