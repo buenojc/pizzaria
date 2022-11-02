@@ -74,10 +74,18 @@ function alterarScore(novoScore, idPizza){
 }
 
 
+function adicionarIngrediente(novosIngrediente, idPizza){
+    const indexPizza = pegaIndexPorId(idPizza);
+    pizzas[indexPizza].ingredientes.push(novosIngrediente)
+    salvar(pizzas);
+}
+
+
 module.exports = {
     listarPizzas,
     adicionarPizza,
     removerPizza,
     alterarPizza,
-    alterarScore
+    alterarScore,
+    adicionarIngrediente
 }
