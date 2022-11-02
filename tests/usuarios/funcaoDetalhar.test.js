@@ -1,3 +1,3 @@
 const { detalhar } = require('../../services/UsuariosServices')
 
-detalhar(4)
+detalhar(2)

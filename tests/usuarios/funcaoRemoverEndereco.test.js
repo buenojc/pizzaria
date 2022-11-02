@@ -1,3 +1,3 @@
 const { removerEndereco } = require('../../services/UsuariosServices');
 
-removerEndereco(2, 1)
+removerEndereco(0, 2)
