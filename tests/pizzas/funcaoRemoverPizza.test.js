@@ -1,3 +1,3 @@
 const { removerPizza } = require('../../services/PizzasServices');
 
-removerPizza(10);
+removerPizza(3);

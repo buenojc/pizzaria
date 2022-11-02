@@ -25,11 +25,11 @@ function pegaIndexPorId(id){
 
 
 function adicionarPizza( informacoesPizza ){
-    let id = pizzas[pizzas.length - 1].id + 1
+    let id = 1
 
-    if(pizzas.length == 0){
-        id = 1
-    }
+    if(pizzas.length > 0){
+        id = pizzas[pizzas.length - 1].id + 1
+     }
 
     const pizza = {
         id,
