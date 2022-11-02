@@ -1,3 +1,3 @@
 const { adicionarIngrediente } = require('../../services/PizzasServices');
 
-adicionarIngrediente("tomate", 5);
+adicionarIngrediente("tomate", 1);
