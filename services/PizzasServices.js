@@ -19,6 +19,10 @@ function salvar( listaDePizzas ){
     fs.writeFileSync('./databases/pizzas.json', JSON.stringify(listaDePizzas, null, 4))
 }
 
+function pegaIndexPorId(id){
+    return pizzas.findIndex(pizza => pizza.id == id);
+}
+
 
 function adicionarPizza( informacoesPizza ){
     let id = pizzas[pizzas.length - 1].id + 1
@@ -41,6 +45,9 @@ function adicionarPizza( informacoesPizza ){
     salvar(pizzas)
 
 }
+
+
+
 
 module.exports = {
     listarPizzas,
