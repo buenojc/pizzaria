@@ -152,8 +152,8 @@ Fase 1 - Funções dentro do arquivo UsuariosServices.js:
 
 Fase 2 - Funções dentro do arquivo PizzasServices.js:
     
-    Função listar:
-    Função adicionar:
+    [x] Função listar:
+    [x] Função adicionar:
     Função remover:
     Função alterar:
     Função adicionarIngrediente:
