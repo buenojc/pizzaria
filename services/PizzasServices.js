@@ -54,10 +54,22 @@ function removerPizza( idPizza ){
 }
 
 
+function alterarPizza( novasInformacoes, idPizza ){
+    const indexPizza = pegaIndexPorId(idPizza);
+
+    pizzas[indexPizza].nome = novasInformacoes.nome;
+    pizzas[indexPizza].preco = novasInformacoes.preco;
+    pizzas[indexPizza].destaque = novasInformacoes.destaque;
+    pizzas[indexPizza].img = novasInformacoes.img;
+
+    salvar(pizzas);
+}
+
 
 
 module.exports = {
     listarPizzas,
     adicionarPizza,
-    removerPizza
+    removerPizza,
+    alterarPizza
 }
