@@ -1,6 +1,6 @@
 const pizzas = require('../databases/pizzas.json');
 
-function listar(){
+function listarPizzas(){
     console.table(
         pizzas.map(pizza => {
             return {
@@ -14,6 +14,7 @@ function listar(){
 }
 
 
+
 module.exports = {
-    listar
+    listarPizzas
 }
