@@ -159,7 +159,7 @@ Fase 2 - Funções dentro do arquivo PizzasServices.js:
     Função adicionarIngrediente:
     Função removerIngrediente:
     Função alterarIngrediente:
-    Função Extra - Alterar score:
+    [x] Função Extra - Alterar score:
 
         
 Fase 3 - Funções dentro do arquivo PedidosServices.js:

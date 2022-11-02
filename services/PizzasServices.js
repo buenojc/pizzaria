@@ -66,10 +66,18 @@ function alterarPizza( novasInformacoes, idPizza ){
 }
 
 
+function alterarScore(novoScore, idPizza){
+    const indexPizza = pegaIndexPorId(idPizza);
+    pizzas[indexPizza].score = novoScore;
+    salvar(pizzas);
+
+}
+
 
 module.exports = {
     listarPizzas,
     adicionarPizza,
     removerPizza,
-    alterarPizza
+    alterarPizza,
+    alterarScore
 }
