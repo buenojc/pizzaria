@@ -37,6 +37,10 @@ function salvar(pedidos){
     fs.writeFileSync('./databases/pedidos.json', JSON.stringify(pedidos, null, 4));
 }
 
+function pegaIndexPedido(id){
+    return pedidos.findIndex(pedido => pedido.id == id);
+}
+
 function cadastrarPedido(infoPedido){
     let id = 1;
     
@@ -58,7 +62,15 @@ function cadastrarPedido(infoPedido){
 }
 
 
+function alterarUsuario(idPedido, idNovoUsuario){
+    const indexPedido = pegaIndexPedido(idPedido);
+    pedidos[indexPedido].idUsuario = idNovoUsuario;
+    salvar(pedidos)   
+}
+
+
 module.exports = {
     listarPedidos,
-    cadastrarPedido
+    cadastrarPedido,
+    alterarUsuario
 }
