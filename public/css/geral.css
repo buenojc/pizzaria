@@ -1,0 +1,27 @@
+body{
+    background-color: gray;
+}
+
+header{
+    border: 3px dotted red;
+}
+
+button{
+    color: #ffffff;
+    background-color: #ff5100;
+    border:none;
+    padding: 10px 20px;
+}
+
+.btBuscar{
+    width: 300px;
+}
+
+#logo{
+    width: 64px;
+    height: 64px;
+}
+
+article img {
+    width: 300px;
+}
