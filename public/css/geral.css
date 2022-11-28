@@ -4,9 +4,14 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
 body{
     background-color: gray;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
 }
 
 header{
@@ -45,6 +50,21 @@ header button{
     padding: 10px 20px;
 }
 
+button, .input-file-container {
+    color: #fff;
+    background-color: #ff5100;
+    border:none;
+    padding: 10px 0;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover, .input-file-container:hover{
+    opacity: 0.8;
+}
+
+
 .btBuscar{
     width: 300px;
     font-size: 1.5rem;
@@ -58,3 +78,13 @@ header button{
 article img {
     width: 300px;
 }
+
+.input-file-container{
+    background-color: #ff5100;
+    font-size: 14px;
+}
+
+input[type="file"]{
+    display: none;
+}
+

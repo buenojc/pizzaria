@@ -14,4 +14,8 @@ servidor.get('/carrinho', (req, res) => {
 })
 
 
+servidor.get('/perfil', (req, res) => {
+    return res.sendFile(__dirname + '/views/perfil.html')
+})
+
 servidor.listen(3000)
