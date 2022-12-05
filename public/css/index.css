@@ -50,3 +50,10 @@ main article button{
     right: 0;
     padding: 10px 20px;
 }
+
+
+@media screen and (max-width: 720px){
+    main{
+        grid-template-columns: repeat(2, 1fr);
+    }    
+}
