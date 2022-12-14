@@ -10,7 +10,7 @@ html{
 
 body{
     background-color: gray;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     height: 100%;
 }
 
@@ -108,6 +108,13 @@ input[type="file"]{
     display: none;
 }
 
+form input[type="text"],
+form input[type="password"],
+form input[type="email"],
+form input[type="number"]{
+    padding: 5px;
+    font-size: 1.2rem;
+}
 
 @media screen and (max-width: 550px){
     .btBuscar{
