@@ -134,12 +134,11 @@ window.addEventListener("load", () => {
   function mostrarPizzas(pizzas) {
     pizzas.forEach(showPizza);
   }
-  mostrarPizzas(pizzasDoMenu);
 
   function onCampoBuscakeyup() {
     const trechoBuscado = campoBusca.value;
     const pizzasFiltradas = filtrarPizzas(pizzasDoMenu, trechoBuscado);
-    main.innerHTML = '';
+    main.innerHTML = "";
     mostrarPizzas(pizzasFiltradas);
   }
 
@@ -150,5 +149,6 @@ window.addEventListener("load", () => {
     return pizzasFiltradas;
   }
 
+  mostrarPizzas(pizzasDoMenu);
   campoBusca.addEventListener("keyup", onCampoBuscakeyup);
 });
