@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro | Pizzaria</title>
+    <link rel="stylesheet" href="/css/geral.css" />
+    <link rel="stylesheet" href="/css/cadastro.css" />
+  </head>
+  <body>
+    <header>
+      <a href="/">
+        <img id="logo" src="/img/logo.svg" alt="Logo da Pizzaria Fantástica" />
+      </a>
+
+      <input
+        placeholder="Qual pizza você procura?"
+        type="text"
+        name=""
+        id="campo-busca"
+      />
+      <button type="submit" class="btBuscar">Buscar</button>
+
+      <a href="/carrinho">
+        <img src="" alt="" />
+        <span>0</span>
+      </a>
+      <a>
+        <img src="" alt="" />
+      </a>
+    </header>
+
+    <main>
+      <form>
+        <div>
+          <label for="nome">Nome:</label>
+          <input type="text" name="nome" id="nome" required />
+        </div>
+        <div>
+          <label for="email">E-mail:</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+          <label for="cep">CEP:</label>
+          <input
+            type="text"
+            pattern="^[0-9]{5}-[0-9]{3}$"
+            name="cep"
+            id="cep"
+            required
+          />
+          <span class="error-msg">Preencha o cep corretamente</span>
+        </div>
+        <div class="controles">
+          <button type="reset">Resetar</button>
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>
