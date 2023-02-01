@@ -1,23 +1,12 @@
 const express = require("express");
 const path = require("path");
 const servidor = express();
+const router = require("./router")
 
 servidor.use(express.static(path.join(__dirname, "public")));
 
-servidor.get("/", (req, res) => {
-  return res.sendFile(__dirname + "/views/index.html");
-});
+// Define roteador a ser utilizado
+servidor.use(router)
 
-servidor.get("/carrinho", (req, res) => {
-  return res.sendFile(__dirname + "/views/carrinho.html");
-});
-
-servidor.get("/perfil", (req, res) => {
-  return res.sendFile(__dirname + "/views/perfil.html");
-});
-
-servidor.get("/cadastro", (req, res) => {
-  return res.sendFile(__dirname + "/views/cadastro.html");
-});
 
 servidor.listen(3000);
