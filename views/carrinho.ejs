@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("partials/head", {estilos: ['css/carrinho.css'], titulo: "MeuCarrinho | Pizzaria Fantástica" }) %>
+  <body>
+    <%- include("partials/header") %>
+    <main>
+      <h2>Carrinho de <%= nomeDoUsuario %></h2>
+      <ul>
+        <% for( let pizza of carrinho ) { %>
+        <li><%= pizza.nome %></li>
+        <% } %>
+      </ul>
+    </main>
+  </body>
+</html>

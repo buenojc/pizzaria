@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include("partials/head", {estilos: ["/css/cadastro.css"], titulo: "Cadastro | Pizzaria"}) %>
+  <body>
+    <%- include("partials/header") %>
+    <main>
+      <form>
+        <div>
+          <label for="nome">Nome:</label>
+          <input type="text" name="nome" id="nome" required />
+        </div>
+        <div>
+          <label for="email">E-mail:</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+        <div>
+          <label for="cep">CEP:</label>
+          <input
+            type="text"
+            pattern="^[0-9]{5}-[0-9]{3}$"
+            name="cep"
+            id="cep"
+            required
+          />
+          <span class="error-msg">Preencha o cep corretamente</span>
+        </div>
+        <div>
+          <label for="rua">Rua:</label>
+          <input type="text" name="rua" id="rua" />
+        </div>
+        <div>
+          <label for="numero">Numero:</label>
+          <input type="text" name="numero" id="numero" />
+        </div>
+        <div>
+          <label for="complemento">Complemento:</label>
+          <input type="text" name="complemento" id="complemento" />
+        </div>
+        <div>
+          <label for="bairro">Bairro:</label>
+          <input type="text" name="bairro" id="bairro" />
+        </div>
+        <div>
+          <label for="cidade">Cidade:</label>
+          <input type="text" name="cidade" id="cidade" />
+        </div>
+        <div>
+          <label for="estado">Estado:</label>
+          <select id="estado" name="estado">
+            <option value="" disabled selected>Selecione seu estado</option>
+            <option value="AC">Acre</option>
+            <option value="AL">Alagoas</option>
+            <option value="AP">Amapá</option>
+            <option value="AM">Amazonas</option>
+            <option value="BA">Bahia</option>
+            <option value="CE">Ceará</option>
+            <option value="DF">Distrito Federal</option>
+            <option value="ES">Espírito Santo</option>
+            <option value="GO">Goiás</option>
+            <option value="MA">Maranhão</option>
+            <option value="MT">Mato Grosso</option>
+            <option value="MS">Mato Grosso do Sul</option>
+            <option value="MG">Minas Gerais</option>
+            <option value="PA">Pará</option>
+            <option value="PB">Paraíba</option>
+            <option value="PR">Paraná</option>
+            <option value="PE">Pernambuco</option>
+            <option value="PI">Piauí</option>
+            <option value="RJ">Rio de Janeiro</option>
+            <option value="RN">Rio Grande do Norte</option>
+            <option value="RS">Rio Grande do Sul</option>
+            <option value="RO">Rondônia</option>
+            <option value="RR">Roraima</option>
+            <option value="SC">Santa Catarina</option>
+            <option value="SP">São Paulo</option>
+            <option value="SE">Sergipe</option>
+            <option value="TO">Tocantins</option>
+          </select>
+        </div>
+        <div class="controles">
+          <button type="reset">Resetar</button>
+          <button type="submit">Enviar</button>
+        </div>
+      </form>
+    </main>
+    <script src="/js/cadastro.js" defer></script>
+  </body>
+</html>
