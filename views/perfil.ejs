@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("partials/head", {estilos: ["/css/form-usuario.css"], titulo: "Meu Perfil | Pizzaria Fantástica"}) %>
+  <%- include("partials/head", {estilos: ["/css/perfil.css"], titulo: "Meu Perfil | Pizzaria Fantástica"}) %>
   <body>
     <%- include("partials/header") %>
     <form
@@ -22,7 +22,7 @@
             name="nome"
             id="nome"
             placeholder="Digite o nome do usuário"
-            value="Renato Aragão"
+            value="<%= usuario.nome %>"
           />
         </label>
 
@@ -33,7 +33,7 @@
             name="email"
             id="email"
             placeholder="Digite e-mail do usuário"
-            value="didi@trapalhoes.com"
+            value="<%= usuario.email %>"
           />
         </label>
 
