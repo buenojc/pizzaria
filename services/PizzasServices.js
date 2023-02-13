@@ -1,106 +1,85 @@
-const pizzas = require('../databases/pizzas.json');
-const fs = require('fs');
+const pizzas = require("../databases/pizzas.json");
+const fs = require("fs");
+const path = require("path");
 
-
-function listarPizzas(){
-    console.table(
-        pizzas.map(pizza => {
-            return {
-                id: pizza.id,
-                nome: pizza.nome,
-                preco: pizza.preco,
-                score: pizza.score
-            }
-        })
-    )
+/**
+ * Retorna um array com todas as pizzas gravadas.
+ * @returns {Pizza[]}
+ */
+function carregarPizzas() {
+  return pizzas;
 }
 
-function salvar( listaDePizzas ){
-    fs.writeFileSync('./databases/pizzas.json', JSON.stringify(listaDePizzas, null, 4))
+/**
+ * Retorna a pizza de id passado pelo parâmetro idPizza
+ * @param {number} idDaPizza
+ * @returns {Pizza}
+ * @throws Emite erro caso não encontre nenhuma pizza com o id dado
+ */
+function carregarPizza(idDaPizza) {
+  let pizza = pizzas.find((p) => p.id == idDaPizza);
+  if (pizza == undefined) {
+    throw new Error("Pizza inexistente");
+  }
+  return pizza;
 }
 
-function pegaIndexPorId(id){
-    return pizzas.findIndex(pizza => pizza.id == id);
+/**
+ * Adiciona uma pizza.
+ * @param {Pizza} pizza
+ */
+function adicionarPizza(pizza) {
+  // Adicionar pizza ao array de pizzas
+  pizzas.push(pizza);
+  // Salvar este array no arquivo pizzas.json
+  salvar();
 }
 
-
-function adicionarPizza( informacoesPizza ){
-    let id = 1
-
-    if(pizzas.length > 0){
-        id = pizzas[pizzas.length - 1].id + 1
-     }
-
-    const pizza = {
-        id,
-        nome: informacoesPizza.nome,
-        ingredientes: informacoesPizza.ingredientes,
-        preco: informacoesPizza.preco,
-        img: informacoesPizza.img,
-        destaque: informacoesPizza.destaque,
-        score: 0
-    }
-
-    pizzas.push(pizza);
-    salvar(pizzas)
-
+/**
+ * Remove uma pizza.
+ * @param {number} idDaPizza
+ * @throws Emite erro caso não exista pizza com o id passado
+ */
+function removerPizza(idDaPizza) {
+  let posicao = pizzas.findIndex((p) => p.id == idDaPizza);
+  if (posicao == -1) {
+    throw new Error("Pizza inexistente");
+  }
+  pizzas.splice(posicao, 1);
+  salvar();
 }
 
+/**
+ * Altera as informações de uma pizza
+ * @param {number} idDaPizza
+ * @param {{nome: string, ingredientes:string[], preco:number, destaque: boolean}} dadosDaPizza
+ */
+function alterarPizza(idDaPizza, dadosDaPizza) {
+  let pizza = pizzas.find((p) => p.id == idDaPizza);
+  if (pizza == undefined) {
+    throw new Error("Pizza inexistente");
+  }
 
-function removerPizza( idPizza ){
-    const indexPizza = pegaIndexPorId(idPizza);
-    pizzas.splice(indexPizza, 1);
-    salvar(pizzas);
+  pizza.nome = dadosDaPizza.nome;
+  pizza.ingredientes = dadosDaPizza.ingredientes;
+  pizza.preco = dadosDaPizza.preco;
+  pizza.destaque = dadosDaPizza.destaque;
+
+  salvar();
 }
 
-
-function alterarPizza( novasInformacoes, idPizza ){
-    const indexPizza = pegaIndexPorId(idPizza);
-
-    pizzas[indexPizza].nome = novasInformacoes.nome;
-    pizzas[indexPizza].preco = novasInformacoes.preco;
-    pizzas[indexPizza].destaque = novasInformacoes.destaque;
-    pizzas[indexPizza].img = novasInformacoes.img;
-
-    salvar(pizzas);
+function salvar() {
+  const caminhoParaArquivo = path.resolve(
+    __dirname + "/../databases/pizzas.json"
+  );
+  fs.writeFileSync(caminhoParaArquivo, JSON.stringify(pizzas, null, 4));
 }
 
-
-function alterarScore(novoScore, idPizza){
-    const indexPizza = pegaIndexPorId(idPizza);
-    pizzas[indexPizza].score = novoScore;
-    salvar(pizzas);
-
-}
-
-
-function adicionarIngrediente(novosIngrediente, idPizza){
-    const indexPizza = pegaIndexPorId(idPizza);
-    pizzas[indexPizza].ingredientes.push(novosIngrediente)
-    salvar(pizzas);
-}
-
-
-function removerIngrediente(indexIngredienteARemover, idPizza){
-    const indexPizza = pegaIndexPorId(idPizza);
-    pizzas[indexPizza].ingredientes.splice(indexIngredienteARemover, 1);
-    salvar(pizzas);
-}
-
-
-function alterarIngrediente(indexIngrediente, ingredienteAtualizado, idPizza){
-    const indexPizza = pegaIndexPorId(idPizza);
-    pizzas[indexPizza].ingredientes[indexIngrediente] = ingredienteAtualizado;
-    salvar(pizzas);
-}
-
-module.exports = {
-    listarPizzas,
-    adicionarPizza,
-    removerPizza,
-    alterarPizza,
-    alterarScore,
-    adicionarIngrediente,
-    removerIngrediente,
-    alterarIngrediente
-}
+const PizzasServices = {
+  carregarPizza,
+  carregarPizzas,
+  adicionarPizza,
+  removerPizza,
+  alterarPizza,
+};
+module.exports = PizzasServices;
