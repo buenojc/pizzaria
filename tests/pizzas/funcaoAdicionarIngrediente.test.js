@@ -1,3 +1,3 @@
-const { adicionarIngrediente } = require('../../services/PizzasServices');
+const { adicionarIngrediente } = require('../../services/PizzasServicesCli');
 
 adicionarIngrediente("tomate", 1);

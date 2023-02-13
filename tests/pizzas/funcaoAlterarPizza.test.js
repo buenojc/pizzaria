@@ -1,4 +1,4 @@
-const { alterarPizza } = require('../../services/PizzasServices');
+const { alterarPizza } = require('../../services/PizzasServicesCli');
 
 alterarPizza({
     nome: "Calabresa",

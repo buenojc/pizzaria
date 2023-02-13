@@ -1,3 +1,3 @@
-const { removerPizza } = require('../../services/PizzasServices');
+const { removerPizza } = require('../../services/PizzasServicesCli');
 
 removerPizza(3);

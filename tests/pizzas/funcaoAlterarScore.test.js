@@ -1,3 +1,3 @@
-const { alterarScore } = require('../../services/PizzasServices');
+const { alterarScore } = require('../../services/PizzasServicesCli');
 
 alterarScore(40, 1);
