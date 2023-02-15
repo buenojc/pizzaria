@@ -30,6 +30,12 @@ function carregarPizza(idDaPizza) {
  */
 function adicionarPizza(pizza) {
   // Adicionar pizza ao array de pizzas
+  if(pizzas.length > 0){
+    pizza.id = pizzas[pizzas.length -1].id + 1
+  } else {
+    pizza.id = 1;
+  }
+
   pizzas.push(pizza);
   // Salvar este array no arquivo pizzas.json
   salvar();
