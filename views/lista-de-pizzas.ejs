@@ -77,14 +77,7 @@
     </style>
   </head>
   <body>
-    <nav class="nav-adm">
-      <ul>
-        <li><a href="#">Pedidos</a></li>
-        <li><a href="#">Clientes</a></li>
-        <li class="selected"><a href="#">Pizzas</a></li>
-        <li><a href="#">Usuarios</a></li>
-      </ul>
-    </nav>
+    <%- include("partials/admHeader") %>
     <main>
     <a href="/adm/pizzas/create" class="bt">Adicionar nova pizza</a>
       <table id="tabela-de-pizzas">
@@ -110,7 +103,7 @@
               currency: 'BRL'}) %>
             </td>
             <td>
-              <a class="bt" href="#">Editar</a>
+              <a class="bt" href="/adm/pizzas/<%= pizza.id %>/edit">Editar</a>
               <a class="bt" href="#">Remover</a>
             </td>
           </tr>

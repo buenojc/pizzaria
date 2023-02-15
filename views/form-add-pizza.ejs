@@ -65,14 +65,7 @@
     </style>
 </head>
 <body>
-    <nav class="nav-adm">
-        <ul>
-            <li><a href="#">Pedidos</a></li>
-            <li><a href="#">Clientes</a></li>
-            <li class="selected"><a href="#">Pizzas</a></li>
-            <li><a href="#">Usuarios</a></li>
-        </ul>
-    </nav>
+    <%- include("partials/admHeader") %>
     <main>
         <form action="/adm/pizzas/store" method="POST">
             <label>
