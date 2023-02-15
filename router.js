@@ -17,7 +17,7 @@ router.get("/pizzas/:id", PaginasController.showPizza);
 
 router.get("/adm/pizzas", AdmController.listarPizzas);
 router.get("/adm/pizzas/create", AdmController.criarPizza);
-router.get("/adm/pizzas/edit", (req, res) => {});
+router.get("/adm/pizzas/:id/edit", AdmController.showEditPizza);
 router.post("/adm/pizzas/store", AdmController.gravarPizza);
 router.post("/adm/pizzas/update", (req, res) => {});
 router.post("/adm/pizzas/delete", (req, res) => {})
