@@ -3,8 +3,8 @@ const path = require("path");
 const bloqueiaForaDeHora = require("./middlewares/bloqueiaForaDeHora");
 const registraRequisicao = require("./middlewares/registraRequisicao");
 const servidor = express();
-const router = require("./router");
-const routerAdm = require("./routerAdm");
+const router = require("./routers/router");
+const routerAdm = require("./routers/routerAdm");
 
 servidor.use(express.static(path.join(__dirname, "public")));
 servidor.set("view engine", "ejs")

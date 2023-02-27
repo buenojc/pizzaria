@@ -2,7 +2,7 @@
 const express = require("express");
 
 // Importar o controller
-const AdmController = require("./controllers/AdmController");
+const AdmController = require("../controllers/AdmController");
 
 // Criar o roteador
 const routerAdm = express.Router();

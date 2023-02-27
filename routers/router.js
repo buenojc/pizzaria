@@ -2,7 +2,7 @@
 const express = require("express");
 
 // Importar o controller
-const PaginasController = require("./controllers/PaginasController");
+const PaginasController = require("../controllers/PaginasController");
 
 // Criar o roteador
 const router = express.Router();
