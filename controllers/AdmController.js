@@ -1,4 +1,5 @@
 const PizzasServices = require("../services/PizzasServices");
+const fs = require("fs");
 
 const AdmController = {
   listarPizzas: (req, res) => {
@@ -9,10 +10,13 @@ const AdmController = {
     res.render("form-add-pizza");
   },
   gravarPizza: (req, res) => {
+    const novoNome = `${Date.now()}-${req.file.originalname}`;
+    fs.renameSync(req.file.path, `${req.file.destination}/${novoNome}`);
+
     const pizza = {
       nome: req.body.nome,
       preco: Number(req.body.preco),
-      img: "/img/no-image.png",
+      img: `/img/upload/${novoNome}`,
       destaque: false,
       score: 0,
       ingredientes: req.body.ingredientes.split(",").map((e) => e.trim()),
