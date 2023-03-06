@@ -22,5 +22,8 @@ routerAdm.post(
 routerAdm.post("/adm/pizzas/update", (req, res) => {});
 routerAdm.post("/adm/pizzas/delete", (req, res) => {});
 
+routerAdm.get('/adm/login', AdmController.showLogin);
+routerAdm.post('/adm/login', AdmController.login);
+
 // Exportar o roteador
 module.exports = routerAdm;

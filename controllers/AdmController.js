@@ -1,5 +1,7 @@
 const PizzasServices = require("../services/PizzasServices");
+const administradores = require("../databases/administradores.json");
 const fs = require("fs");
+const bcrypt = require("bcrypt");
 
 const AdmController = {
   listarPizzas: (req, res) => {
@@ -28,6 +30,26 @@ const AdmController = {
   showEditPizza: (req, res) => {
     const pizza = PizzasServices.carregarPizza(req.params.id);
     res.render("form-edit-pizza", { pizza });
+  },
+  showLogin: (req, res) => {
+    res.render("adm-login");
+  },
+  login: (req, res) => {
+    const { email, senha } = req.body;
+    const adm = administradores.find((adm) => adm.email == email);
+
+    if (adm == undefined) {
+      return res.send("E-mail não cadastrado");
+    }
+
+    const senhaCorreta = bcrypt.compareSync(senha, adm.senha);
+
+    if (!senhaCorreta) {
+      return res.send("E-mail não cadastrado");
+    }
+
+    req.session.admLogado = true
+    return res.redirect("/adm/pizzas");
   },
 };
 
