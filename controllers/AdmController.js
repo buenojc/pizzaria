@@ -5,8 +5,9 @@ const bcrypt = require("bcrypt");
 
 const AdmController = {
   listarPizzas: (req, res) => {
+    const msg = req.query.msg
     const pizzas = PizzasServices.carregarPizzas();
-    res.render("lista-de-pizzas", { pizzas });
+    res.render("lista-de-pizzas", { pizzas, msg });
   },
   criarPizza: (req, res) => {
     res.render("form-add-pizza");
@@ -51,6 +52,11 @@ const AdmController = {
     req.session.admLogado = true
     return res.redirect("/adm/pizzas");
   },
+  delete: (req, res) => {
+    const {id} = req.params
+    PizzasServices.removerPizza(id)
+    return res.redirect('/adm/pizzas?msg=pizza-apagada')    
+  }
 };
 
 module.exports = AdmController;

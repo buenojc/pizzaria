@@ -27,7 +27,7 @@ routerAdm.post(
   AdmController.gravarPizza
 );
 routerAdm.post("/adm/pizzas/update", (req, res) => {});
-routerAdm.post("/adm/pizzas/delete", (req, res) => {});
+routerAdm.get("/admin/pizzas/:id/delete", AdmController.delete);
 
 
 // Exportar o roteador

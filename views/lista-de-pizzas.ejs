@@ -80,6 +80,11 @@
     <%- include("partials/admHeader") %>
     <main>
     <a href="/adm/pizzas/create" class="bt">Adicionar nova pizza</a>
+    <% if(msg == 'pizza-apagada'){ %>
+      <div>
+        <p>Pizza foi apagada com sucesso</p>
+      </div>
+    <% } %>
       <table id="tabela-de-pizzas">
         <thead>
           <tr>
@@ -104,7 +109,7 @@
             </td>
             <td>
               <a class="bt" href="/adm/pizzas/<%= pizza.id %>/edit">Editar</a>
-              <a class="bt" href="#">Remover</a>
+              <a class="bt" href="/admin/pizzas/<%= pizza.id %>/delete">Remover</a>
             </td>
           </tr>
           <% } %>
