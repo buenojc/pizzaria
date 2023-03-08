@@ -8,7 +8,14 @@ const AdmController = require("../controllers/AdmController");
 const routerAdm = express.Router();
 
 const multer = require("multer");
+const verificaSeLogado = require("../middlewares/verificaSeLogado");
 const upload = multer({ dest: 'public/img/upload' })
+
+
+
+routerAdm.get('/adm/login', AdmController.showLogin);
+routerAdm.post('/adm/login', AdmController.login);
+routerAdm.use('/adm/', verificaSeLogado)
 
 // Definir as rotas para o roteador
 routerAdm.get("/adm/pizzas", AdmController.listarPizzas);
@@ -22,8 +29,6 @@ routerAdm.post(
 routerAdm.post("/adm/pizzas/update", (req, res) => {});
 routerAdm.post("/adm/pizzas/delete", (req, res) => {});
 
-routerAdm.get('/adm/login', AdmController.showLogin);
-routerAdm.post('/adm/login', AdmController.login);
 
 // Exportar o roteador
 module.exports = routerAdm;
