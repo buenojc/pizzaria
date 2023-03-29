@@ -1,0 +1,10 @@
+// arquivo que diz ao sequelize onde o arquivo de configuração está
+const path = require('path');
+
+
+module.exports = {
+    config: path.resolve('databases', 'config.js'),
+    "models-path": path.resolve('databases', 'models'),
+    "migrations-path": path.resolve('databases', 'migrations'),
+    "seeders-path": path.resolve('databases', 'seeders')
+}
