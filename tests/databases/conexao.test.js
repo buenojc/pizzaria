@@ -19,10 +19,11 @@ group by
 order by 
 	sum(pp.quantidade) DESC;`;
 
-const promessa = conexao.query(sql)
+const promessa = conexao.query(sql, {type: sequelize.QueryTypes.SELECT})
 
 promessa.then(
     dados => {
         console.log(dados)
+		conexao.close();
     }
 )
