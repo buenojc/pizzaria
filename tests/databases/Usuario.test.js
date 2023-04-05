@@ -1,8 +1,9 @@
-const { Usuario } = require("../../databases/models");
+const { Usuario, sequelize } = require("../../databases/models");
 
-async function buscaUsuarios() {
-  const usuarios = await Usuario.findAll({attributes: {exclude: ['senha']}, raw: true });
-  console.log(usuarios);
+async function buscaUsuario() {
+  const usuario = await Usuario.findByPk(2, {include: 'enderecos'});
+  sequelize.close()
+  console.log(usuario.toJSON());
 }
 
-buscaUsuarios();
+buscaUsuario();
