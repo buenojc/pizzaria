@@ -17,10 +17,10 @@ module.exports = (sequelize, DataTypes) => {
 
     Ingrediente.associate = (models) => {
         Ingrediente.belongsToMany(models.Pizza, {
-            foreignKey: 'ingrediente_id',
-            otherKey: 'pizza_id',
-            as: 'pizzas',
-            through: 'pizza_ingredientes',
+            foreignKey: 'ingrediente_id', // nome da coluna que é o id do model atual na tabela intermediária
+            otherKey: 'pizza_id', // nome da coluna que é o id do model relacionado na tabela intermediária
+            as: 'pizzas', 
+            through: 'pizza_ingredientes', // tabela intermediária atraves da qual a associação acontece
             timestamps: false
         })
     }
