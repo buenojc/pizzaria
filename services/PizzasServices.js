@@ -1,4 +1,5 @@
 const pizzas = require("../databases/pizzas.json");
+const { Pizza } = require('../databases/models')
 const fs = require("fs");
 const path = require("path");
 
@@ -6,7 +7,8 @@ const path = require("path");
  * Retorna um array com todas as pizzas gravadas.
  * @returns {Pizza[]}
  */
-function carregarPizzas() {
+async function carregarPizzas() {
+  const pizzas = await Pizza.findAll({include: 'ingredientes'}) 
   return pizzas;
 }
 

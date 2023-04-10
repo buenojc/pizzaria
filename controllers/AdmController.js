@@ -4,9 +4,9 @@ const fs = require("fs");
 const bcrypt = require("bcrypt");
 
 const AdmController = {
-  listarPizzas: (req, res) => {
+  listarPizzas: async (req, res) => {
     const msg = req.query.msg
-    const pizzas = PizzasServices.carregarPizzas();
+    const pizzas = await PizzasServices.carregarPizzas();
     res.render("lista-de-pizzas", { pizzas, msg });
   },
   criarPizza: (req, res) => {
