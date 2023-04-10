@@ -27,12 +27,18 @@ module.exports = (sequelize, DataTypes) => {
       timestamps: false,
     }
   );
-  
+
   Usuario.associate = (models) => {
     Usuario.hasMany(models.Endereco, {
-      foreignKey: 'usuario_id',
-      as: 'enderecos'
-    })
-  }
-  return Usuario
+      foreignKey: "usuario_id",
+      as: "enderecos",
+    });
+
+    Usuario.hasMany(models.Pedido, {
+      as: "pedidos",
+      foreignKey: "usuario_id",
+    });
+  };
+
+  return Usuario;
 };
