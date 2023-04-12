@@ -6,6 +6,7 @@ const registraRequisicao = require("./middlewares/registraRequisicao");
 const servidor = express();
 const router = require("./routers/router");
 const routerAdm = require("./routers/routerAdm");
+const routerApi = require('./routerApi')
 
 servidor.use(express.static(path.join(__dirname, "public")));
 servidor.set("view engine", "ejs");
@@ -20,6 +21,7 @@ servidor.use(express.json());
 // Define roteador da área adm - Antes dos middlewares
 // assim as rotas adm não são afetadas pelos middlewares
 servidor.use(routerAdm);
+servidor.use('/api', routerApi);
 
 // Configurando Middlewares
 servidor.use(registraRequisicao);
