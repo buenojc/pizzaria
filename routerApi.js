@@ -15,7 +15,7 @@ routerApi.get('/adm/clientes', ApiController.listarClientes) // Rota para listar
 routerApi.get('/adm/clientes/:idCliente', () => {}) // Rota para listar clientes
 
 
-routerApi.post('/auth/register', () => {}) // Rota para cadastro de clientes
+routerApi.post('/auth/register', ApiController.registrarCliente) // Rota para cadastro de clientes
 routerApi.post('/auth/login', () => {}) // Rota para login de cliente
 
 
