@@ -20,12 +20,11 @@ window.addEventListener("load", () => {
       const dadosCep = await response.json();
       return dadosCep;
     } catch (error) {
-      console.log('Deu erro rapai')
+      alert('Erro ao buscar Cep')
     }
   }
 
   async function onInputCepKeyup() {
-    console.log('Chamou')
     if (inputCep.value.length == 9) {
       const endereco = await carregaInfoCep(inputCep.value);
 
