@@ -25,7 +25,7 @@ servidor.use('/api', routerApi);
 
 // Configurando Middlewares
 servidor.use(registraRequisicao);
-servidor.use(bloqueiaForaDeHora);
+// servidor.use(bloqueiaForaDeHora);
 
 // Define roteador a ser utilizado
 servidor.use(router);
