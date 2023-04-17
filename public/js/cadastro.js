@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   const inputBairro = document.getElementById("bairro");
   const inputCidade = document.getElementById("cidade");
   const selectEstado = document.getElementById("estado");
+  const form = document.querySelector('form')
 
   function preencheInfosEndereco(endereco) {
     inputRua.value = endereco.logradouro;
@@ -34,5 +35,26 @@ window.addEventListener("load", () => {
     }
   }
 
+  async function onFormSubmit(evt){
+    evt.preventDefault()
+
+    // Pega os dados do form e transforma em um objeto literal
+    const formData = new FormData(evt.target)
+    const dadosFormulario = Object.fromEntries(formData.entries())
+
+    const response = await fetch(
+      '/api/auth/register',
+      {
+          method: 'POST',
+          body: JSON.stringify(dadosFormulario),
+          headers: {
+              "Content-type": "application/json"
+          }
+      }
+  );
+
+  }
+
   inputCep.addEventListener("change", onInputCepKeyup);
+  form.addEventListener('submit', onFormSubmit)
 });
