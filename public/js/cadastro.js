@@ -13,21 +13,27 @@ window.addEventListener("load", () => {
   }
 
   async function carregaInfoCep(cep) {
-    const url = `https://viacep.com.br/ws/${cep}/json/`;
-    const response = await fetch(url);
-    const dadosCep = await response.json();
-    return dadosCep;
+
+    try {
+      const url = `https://viacep.com.br/ws/${cep}/json/`;
+      const response = await fetch(url);
+      const dadosCep = await response.json();
+      return dadosCep;
+    } catch (error) {
+      console.log('Deu erro rapai')
+    }
   }
 
   async function onInputCepKeyup() {
+    console.log('Chamou')
     if (inputCep.value.length == 9) {
       const endereco = await carregaInfoCep(inputCep.value);
 
-      if (endereco.erro !== true) {
+      if (endereco) {
         preencheInfosEndereco(endereco);
       }
     }
   }
 
-  inputCep.addEventListener("keyup", onInputCepKeyup);
+  inputCep.addEventListener("change", onInputCepKeyup);
 });
